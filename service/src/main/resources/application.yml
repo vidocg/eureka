@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: eureka-service
+server:
+  port: ${SERVICE_PORT_APP}
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:${SERVER_PORT_APP}/eureka/
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
