@@ -1,0 +1,34 @@
+services:
+  #server
+  server:
+    image: server:latest
+    build:
+      context: ./server
+    environment:
+      - SERVER_PORT_APP=8081
+    ports:
+      - "8081:8081"
+
+  service:
+    image: service:latest
+    build:
+      context: ./service
+    environment:
+      - SERVICE_PORT_APP=8083
+      - SERVER_PORT_APP=8081
+    ports:
+      - "8083:8083"
+    links:
+      - server
+
+  client:
+    image: client
+    build:
+      context: ./client
+    environment:
+      - CLIENT_PORT_APP=8082
+      - SERVER_PORT_APP=8081
+    ports:
+      - "8082:8082"
+    links:
+      - server

@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>client</artifactId>
+
+<!--    <properties>-->
+<!--        <java.version>11</java.version>-->
+<!--        <startclass>com.hrapau.EurekaClientApp</startclass>-->
+<!--    </properties>-->
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -20,5 +26,24 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-
+<!--Is needed to fix "no main manifest attribute" error on running image"-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.hrapau.EurekaClientApp</mainClass>
+                    <classesDirectory>src</classesDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
