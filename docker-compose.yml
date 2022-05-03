@@ -6,6 +6,7 @@ services:
       context: ./server
     environment:
       - SERVER_PORT_APP=8081
+      - SPRING_PROFILES_ACTIVE=docker
     ports:
       - "8081:8081"
 
@@ -16,6 +17,7 @@ services:
     environment:
       - SERVICE_PORT_APP=8083
       - SERVER_PORT_APP=8081
+      - SPRING_PROFILES_ACTIVE=docker
     ports:
       - "8083:8083"
     links:
@@ -28,6 +30,7 @@ services:
     environment:
       - CLIENT_PORT_APP=8082
       - SERVER_PORT_APP=8081
+      - SPRING_PROFILES_ACTIVE=docker
     ports:
       - "8082:8082"
     links:
