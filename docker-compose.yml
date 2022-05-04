@@ -9,7 +9,8 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
       - "8081:8081"
-
+      -
+  #service
   service:
     image: service:latest
     build:
@@ -22,7 +23,8 @@ services:
       - "8083:8083"
     links:
       - server
-
+      -
+  #client
   client:
     image: client
     build:
