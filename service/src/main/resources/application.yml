@@ -1,6 +1,19 @@
 spring:
   application:
     name: eureka-service
+  jpa:
+    properties:
+      hibernate:
+        default_schema: ${SERVICE_DB_SCHEMA}
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
 server:
   port: ${SERVICE_PORT_APP}
 eureka:
