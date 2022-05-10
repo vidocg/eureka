@@ -1,0 +1,14 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  Hrapau
+       changes:
+         -  createTable:
+              tableName:  video_store
+              columns:
+                -  column:
+                     name:  id
+                     type:  bigint
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false

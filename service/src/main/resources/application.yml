@@ -13,6 +13,10 @@ spring:
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/changelog.yml
+    #it is needed to be setup explicitly or will apply to public schema
+    default-schema: ${SERVICE_DB_SCHEMA}
 
 server:
   port: ${SERVICE_PORT_APP}
