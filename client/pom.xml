@@ -34,6 +34,12 @@
             <artifactId>flyway-core</artifactId>
             <version>8.5.10</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <!--Is needed to fix "no main manifest attribute" error on running image"-->
     <build>
