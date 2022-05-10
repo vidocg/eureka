@@ -9,7 +9,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
       - "8081:8081"
-      -
+
   #service
   service:
     image: service:latest
@@ -23,7 +23,7 @@ services:
       - "8083:8083"
     links:
       - server
-      -
+
   #client
   client:
     image: client
@@ -33,6 +33,10 @@ services:
       - CLIENT_PORT_APP=8082
       - SERVER_PORT_APP=8081
       - SPRING_PROFILES_ACTIVE=docker
+      - ClIENT_DB_SCHEMA=eureka_client
+      - DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/postgres
+      - DATASOURCE_USERNAME=postgres
+      - DATASOURCE_PASSWORD=admin
     ports:
       - "8082:8082"
     links:
