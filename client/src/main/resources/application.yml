@@ -1,6 +1,25 @@
 spring:
   application:
     name: eureka-client
+  jpa:
+    properties:
+      hibernate:
+        default_schema: ${ClIENT_DB_SCHEMA}
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    datasource:
+      url: ${SPRING_DATASOURCE_URL}
+      username: ${SPRING_DATASOURCE_USERNAME}
+      password: ${SPRING_DATASOURCE_PASSWORD}
+      driver-class-name: org.postgresql.Driver
+  flyway:
+    user: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    schemas: ${ClIENT_DB_SCHEMA}
+    url: ${SPRING_DATASOURCE_URL}
+    locations: classpath:db/migration_flyway
+
 server:
   port: ${CLIENT_PORT_APP}
 eureka:
@@ -9,3 +28,5 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:${SERVER_PORT_APP}/eureka/
+
+
