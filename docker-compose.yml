@@ -5,6 +5,7 @@ services:
     build:
       context: ./server
     environment:
+      #application port
       - SERVER_PORT_APP=8081
       - SPRING_PROFILES_ACTIVE=docker
     ports:
@@ -16,7 +17,9 @@ services:
     build:
       context: ./service
     environment:
+      #application port
       - SERVICE_PORT_APP=8083
+      #eureka server port
       - SERVER_PORT_APP=8081
       - SPRING_PROFILES_ACTIVE=docker
     ports:
@@ -30,7 +33,9 @@ services:
     build:
       context: ./client
     environment:
+      #application port
       - CLIENT_PORT_APP=8082
+      #eureka server port
       - SERVER_PORT_APP=8081
       - SPRING_PROFILES_ACTIVE=docker
       - ClIENT_DB_SCHEMA=eureka_client
