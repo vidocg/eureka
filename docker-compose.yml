@@ -22,6 +22,10 @@ services:
       #eureka server port
       - SERVER_PORT_APP=8081
       - SPRING_PROFILES_ACTIVE=docker
+      - SERVICE_DB_SCHEMA=eureka_service
+      - DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/postgres
+      - DATASOURCE_USERNAME=postgres
+      - DATASOURCE_PASSWORD=admin
     ports:
       - "8083:8083"
     links:
